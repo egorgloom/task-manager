@@ -19,5 +19,12 @@
     "skipLibCheck": true,
     "strict": true,
     "strictPropertyInitialization": false
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "test",
+    "prisma.config.ts",
+    "vitest.config.mts"
+  ]
 }

@@ -9,6 +9,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
     instrument: ObserveInstrument,
   });
+  app.enableCors();
   app.useGlobalPipes(new ValidationPipe());
   const config = new DocumentBuilder()
     .setTitle('Task Manager API')
@@ -19,11 +20,11 @@ async function bootstrap() {
         type: 'http',
         scheme: 'bearer',
         bearerFormat: 'JWT',
-        name: 'Authorization', // <--- Важно: называем заголовок Authorization
+        name: 'Authorization',
         description: 'Введите JWT токен',
         in: 'header',
       },
-      'token', // <--- Даем имя схеме 'token'
+      'token',
     )
     .build();
 
